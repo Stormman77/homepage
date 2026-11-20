@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Alexey Cherepanov: computer science student at Florida State University and full-stack developer." />
+    <title>Alexey Cherepanov</title>
+    <script>
+      // Apply the saved (or system) theme before the page paints, so dark mode never flashes white.
+      (function () {
+        var saved = null
+        try { saved = localStorage.getItem('theme') } catch (e) {}
+        var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+      })()
+    </script>
+    <script type="module" crossorigin src="/homepage/assets/index-DHo8SvVB.js"></script>
+    <link rel="stylesheet" crossorigin href="/homepage/assets/index-DKkeEYUp.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
