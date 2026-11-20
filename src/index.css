@@ -1,0 +1,107 @@
+:root {
+  --paper: #f3f1ec;
+  --ink: #16171a;
+  --muted: #6b6a66;
+  --rule: #d9d6cf;
+  --accent: #e8462c;
+  --body: #34353a;
+  --photo: saturate(0.9);
+
+  color-scheme: light;
+
+  --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Dark theme: set on <html> by the inline script in index.html and the toggle */
+:root[data-theme='dark'] {
+  --paper: #1f2023;
+  --ink: #e8e6e1;
+  --muted: #9b9993;
+  --rule: #36373c;
+  --accent: #f0583e;
+  --body: #c6c4be;
+  --photo: saturate(0.85) brightness(0.92);
+
+  color-scheme: dark;
+}
+
+/*
+  While the theme is switching, ThemeToggle puts .theme-switching on <html> for a moment.
+  Every element then fades with the same timing, so the header, borders and text
+  all change together instead of each on its own schedule.
+*/
+:root.theme-switching,
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    fill 0.3s ease,
+    stroke 0.3s ease,
+    filter 0.3s ease,
+    transform 0.35s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root.theme-switching,
+  :root.theme-switching *,
+  :root.theme-switching *::before,
+  :root.theme-switching *::after {
+    transition: none !important;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
